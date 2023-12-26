@@ -1,4 +1,4 @@
-Problem Stetement:
+#Problem Stetement:
 
 You are given two json files:
 
@@ -15,11 +15,11 @@ You are given two json files:
 
 **How to run**
 
-- Clone this repository using following command"git clone https://github.com/mkashifchandio/get-stock-level.git"
+- Clone this repository using following command "git clone https://github.com/mkashifchandio/get-stock-level.git"
 - Go to cloned "get-stock-level" folder and run command "npm install" to install depedencies
 - Use any of the commands mentioned below
 
-**Scripts**
+#Scripts
 
 **Run Tests Cases**
 
