@@ -29,4 +29,4 @@ npm test
 
 npm start
 
-note: You can go through using tests but if you want to execute the method directly than uncomment the code from line 69 to line 73 in src/getCurrentStockLevels.ts then run "npm start" to execute that method
+note: You can go through using tests but if you want to execute the method directly than you can update sku param on line 72 of src/getCurrentStockLevels.ts and run following command "npm start" to execute that method.

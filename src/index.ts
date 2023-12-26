@@ -65,9 +65,9 @@ export async function getCurrentStockLevels(
   }
 }
 
-// Uncomment following code to call the getCurrentStockLevels method to get the current stock level for specific sku or use tests
-/** 
-getCurrentStockLevels("LTV719449/39/39").then((response) => {
- console.log(response);
+// Only for testing purpose (Can be executed by running following command "npm start")
+// You can change sku parameter to check other sku
+
+getCurrentStockLevels("IZP721309/74/90").then((response) => {
+  console.log(response);
 });
-*/
