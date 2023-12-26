@@ -1,0 +1,24 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node ./dist/index.js",
+    "test": "tsc && mocha ./dist/tests/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "4.3.11",
+    "@types/mocha": "10.0.6",
+    "@types/node": "20.10.5",
+    "@types/sinon": "17.0.2",
+    "chai": "4.3.10",
+    "mocha": "10.2.0",
+    "sinon": "17.0.1",
+    "typescript": "5.3.3"
+  }
+}
