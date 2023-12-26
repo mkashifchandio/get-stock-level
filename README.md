@@ -1,3 +1,5 @@
+Problem :
+
 You are given two json files:
 
 - stock.json: contains objects which represent the starting stock levels for given SKUS
@@ -10,3 +12,15 @@ You are given two json files:
   Notes:
 - Transactions may exist for SKUs which are not present in `stock.json`. It should be assumed that the starting quantity for these is 0.
 - Functionality can be split into many files to help keep the project clear and organised
+
+**Scripts**
+
+**Run Tests Cases**
+
+npm test
+
+**Run Program**
+
+npm start
+
+note: You can go through using tests but if you want to execute the method directly than uncomment the code from line 69 in src/getCurrentStockLevels.ts then run "npm start" to execute that method
