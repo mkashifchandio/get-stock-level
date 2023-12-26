@@ -19,7 +19,7 @@ You are given two json files:
 - Go to cloned "get-stock-level" folder and run command "npm install" to install depedencies
 - Use any of the commands mentioned below
 
-#Scripts
+<h2>Scripts</h2>
 
 **Run Tests Cases**
 
