@@ -1,4 +1,4 @@
-Problem :
+Problem Stetement:
 
 You are given two json files:
 
@@ -13,6 +13,12 @@ You are given two json files:
 - Transactions may exist for SKUs which are not present in `stock.json`. It should be assumed that the starting quantity for these is 0.
 - Functionality can be split into many files to help keep the project clear and organised
 
+**How to run**
+
+- Clone this repository using following command"git clone https://github.com/mkashifchandio/get-stock-level.git"
+- Go to cloned "get-stock-level" folder and run command "npm install" to install depedencies
+- Use any of the commands mentioned below
+
 **Scripts**
 
 **Run Tests Cases**
@@ -23,4 +29,4 @@ npm test
 
 npm start
 
-note: You can go through using tests but if you want to execute the method directly than uncomment the code from line 69 in src/getCurrentStockLevels.ts then run "npm start" to execute that method
+note: You can go through using tests but if you want to execute the method directly than uncomment the code from line 69 to line 73 in src/getCurrentStockLevels.ts then run "npm start" to execute that method
