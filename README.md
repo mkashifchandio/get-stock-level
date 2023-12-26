@@ -1,4 +1,4 @@
-#Problem Stetement:
+<h2>Problem Stetement</h2>
 
 You are given two json files:
 
@@ -13,7 +13,7 @@ You are given two json files:
 - Transactions may exist for SKUs which are not present in `stock.json`. It should be assumed that the starting quantity for these is 0.
 - Functionality can be split into many files to help keep the project clear and organised
 
-**How to run**
+<h2>How to run</h2>
 
 - Clone this repository using following command "git clone https://github.com/mkashifchandio/get-stock-level.git"
 - Go to cloned "get-stock-level" folder and run command "npm install" to install depedencies
