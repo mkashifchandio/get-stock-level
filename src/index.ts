@@ -7,6 +7,6 @@ export async function getRemainingStock(
   return stockCalculator.getCurrentStockLevel();
 }
 
-// getRemainingStock("IZP721309/74/90").then((response) => {
-//   console.log(response);
-// });
+getRemainingStock("IZP721309/74/90").then((response) => {
+  console.log(response);
+});
