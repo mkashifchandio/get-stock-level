@@ -2,19 +2,26 @@ import path from "path";
 import sinon, { SinonStub } from "sinon";
 import { promises as fsPromises } from "fs";
 import { expect } from "chai";
-import { getCurrentStockLevels } from "./../index.js";
-import { Stock } from "./../interfaces/Stock";
-import { Transaction } from "./../interfaces/Transaction";
-import { CurrentStockLevel } from "./../interfaces/CurrentStockLevel";
+import { getRemainingStock } from "../../index";
+import { Item } from "../../interfaces/Item.interface";
+import { ItemTransactionRecord } from "../../interfaces/ItemTransactionRecord.interface";
 
-const stockPath: string = path.resolve(__dirname, "./../../data/stock.json");
+interface CurrentStockLevel {
+  sku: string;
+  qty: number;
+}
+
+const stockPath: string = path.resolve(__dirname, "./../../../data/stock.json");
 const transactionsPath: string = path.resolve(
   __dirname,
-  "./../../data/transactions.json"
+  "./../../../data/transactions.json"
 );
 
 const mocks = {
-  mockReadFile: (stock: Stock[], transactions: Transaction[]): SinonStub => {
+  mockReadFile: (
+    stock: Item[],
+    transactions: ItemTransactionRecord[]
+  ): SinonStub => {
     return sinon.stub(fsPromises, "readFile").callsFake(async (path) => {
       if (path === stockPath) {
         return JSON.stringify(stock);
@@ -27,7 +34,7 @@ const mocks = {
   },
 };
 
-describe("getCurrentStockLevels", () => {
+describe("getCurrentStockLevels - Integration Test", () => {
   describe("should return correct stock levels for a given SKU", () => {
     let mockReadFile: SinonStub;
 
@@ -110,7 +117,7 @@ describe("getCurrentStockLevels", () => {
     ].forEach((test) => {
       it(`${test.label}`, async () => {
         mockReadFile = mocks.mockReadFile(test.stock, test.transactions);
-        const actualResult: CurrentStockLevel = await getCurrentStockLevels(
+        const actualResult: CurrentStockLevel = await getRemainingStock(
           test.sku
         );
         expect(actualResult).to.deep.equal(test.expectedResponse);
@@ -127,7 +134,7 @@ describe("getCurrentStockLevels", () => {
 
     [
       {
-        label: `Should Throw error if sku doesn't exist in stock and transactions files`,
+        label: `Should throw error if sku doesn't exist in stock and transactions files`,
         sku: "LTV719449/39/39",
         stock: [],
         transactions: [],
@@ -141,7 +148,7 @@ describe("getCurrentStockLevels", () => {
         mockReadFile = mocks.mockReadFile(test.stock, test.transactions);
 
         try {
-          await getCurrentStockLevels(test.sku);
+          await getRemainingStock(test.sku);
           expect.fail(`Unexpected success`);
         } catch (error: any) {
           expect(error).to.be.an.instanceof(Error);
@@ -151,7 +158,7 @@ describe("getCurrentStockLevels", () => {
     });
   });
 
-  describe("when file reading fails", () => {
+  describe("should throw error when file reading fails", () => {
     let mockReadFile: SinonStub;
 
     beforeEach(() => {
@@ -166,7 +173,7 @@ describe("getCurrentStockLevels", () => {
 
     it("should throw an error", async () => {
       try {
-        await getCurrentStockLevels("LTV719449/39/39");
+        await getRemainingStock("LTV719449/39/39");
         expect.fail("Promise should not have resolved");
       } catch (error: any) {
         expect(error).to.be.an.instanceof(Error);

@@ -1,4 +1,4 @@
-export interface Stock {
+export interface Item {
   sku: string;
   stock: number;
 }
